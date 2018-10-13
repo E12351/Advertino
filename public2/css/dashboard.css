@@ -1,0 +1,393 @@
+
+.body {
+    font-family: Arial;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    /*border: 1px solid #ccc;*/
+    /*background-color: #f1f1f1;*/
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: right;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 23px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    padding-right: 27px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+
+}
+
+.map {
+    width: 900px;
+    height: 200px;
+}
+
+.img {
+    border-radius: 8px;
+}
+
+.h1 {
+    text-align: left;
+    text-transform: uppercase;
+    color: #4CAF50;
+}
+
+.w3-btn, .w3-button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 106px;
+}
+
+.logo {
+    vertical-align: middle;
+    width: 93%;
+    padding: 0px 0px 0 13px;
+
+}
+
+.headder {
+    border: 1px solid #ccc;
+
+}
+
+.tempMap {
+    height: -moz-available;
+}
+
+.uploadAdd {
+    padding: 1px 0 7px 0px;
+    overflow: scroll;
+    max-height: 450px;
+}
+
+.uploadContent {
+
+}
+
+.titileupload {
+    font-size: 18px;
+}
+
+.input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+@import "bourbon";
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300);
+
+body {
+    font-family: 'Lato', sans-serif;
+
+}
+
+.upload {
+    /*position: absolute;*/
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+@include align-items(center);
+@include display(flex);
+@include justify-content(center);
+@include linear-gradient(to top right, #bf7a6b 0 %, #e6d8a7 100 %);
+}
+
+.form {
+    width: 400px;
+}
+
+.file-upload-wrapper {
+    $ defaultColor: #4daf7c;
+    $ height: 60px;
+
+    position: relative;
+    width: 100%;
+    height: $ height;
+
+&
+:after {
+    content: attr(data-text);
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    padding: 10px 15px;
+    display: block;
+    width: calc(100% - 40px);
+    pointer-events: none;
+    z-index: 20;
+    height: $ height -20px;
+    line-height: $ height -20px;
+    color: #999;
+    border-radius: 5px 10px 10px 5px;
+    font-weight: 300;
+}
+
+&
+:before {
+    content: 'Upload';
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    height: 60px;
+    background: $ defaultColor;
+    color: #fff;
+    font-weight: 700;
+    z-index: 25;
+    font-size: 16px;
+    line-height: $ height;
+    padding: 0 15px;
+    text-transform: uppercase;
+    pointer-events: none;
+    border-radius: 0 5px 5px 0;
+}
+
+&
+:hover {
+
+&
+:before {
+    background: darken($ defaultColor, 10%);
+}
+
+}
+input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    height: $ height -20px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+}
+
+}
+
+.date {
+    padding-top: 4px;
+
+    padding-bottom: 14px;
+}
+
+.title{
+    padding-top: 14px;
+
+}
+
+body
+{
+    font-family: Open sans, Helvetica;
+    background: #111;
+    color: white;
+    font-size: 16px;
+}
+
+h1
+{
+    font-weight: lighter;
+}
+
+small
+{
+    color: firebrick;
+}
+
+div.checkbox_select
+{
+    width: 200px;
+}
+
+.checkbox_select_anchor
+{
+    display: block;
+    background: #fffcf3;
+    color: #030303;
+    cursor: pointer;
+    padding: 10px 5px 5px;
+    position: relative;
+    border-radius: 5px 10px 10px 5px;
+    border: 1px solid rgba(0, 0, 0, 1);
+    /*width: 360px;*/
+}
+
+.checkbox_select_anchor:after
+{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #8b8375;
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 15px;
+
+}
+
+.expanded .checkbox_select_anchor:after
+{
+    border-top: 0;
+    border-bottom: 10px solid rgba(24, 39, 22, 0.38);
+
+}
+
+
+.checkbox_select_anchor:hover
+{
+    background: #99b7ff !important;
+}
+
+.expanded .checkbox_select_anchor
+{
+    background: #2a647c;
+}
+
+div.checkbox_select .select_input
+{
+    width: 100%;
+    cursor: pointer;
+}
+
+.checkbox_select_dropdown
+{
+    display: none;
+    background: whitesmoke;
+}
+
+.checkbox_select_dropdown.show
+{
+    display: block;
+}
+
+.checkbox_select_dropdown ul
+{
+    max-height: 150px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #999;
+    border-top: 0;
+    border-bottom: 0;
+}
+.checkbox_select_dropdown ul li
+{
+    list-style: none;
+    position: relative;
+    color: #666;
+}
+.checkbox_select_dropdown ul li label
+{
+    position: relative;
+    padding: 10px 5px 5px 40px;
+    display: block;
+    cursor: pointer;
+}
+.checkbox_select_dropdown ul li label:hover
+{
+    background: #cbcbcb;
+    color: white;
+}
+.checkbox_select_dropdown ul li input:checked + label
+{
+    background: #bbb;
+    color: white;
+    text-shadow: 0px 1px 1px rgba(150, 150, 150, 1);
+}
+.checkbox_select_dropdown ul li input
+{
+    position: absolute;
+    left:0;
+    z-index:1;
+    display: inline-block;
+    height: 100%;
+    width: 30px;
+}
+.checkbox_select_search
+{
+    width: 200px;
+    padding: 10px 5px 5px;
+    border: 1px solid #999;
+    border-top: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.checkbox_select_submit
+{
+    background: rgba(42, 100, 124, 0.19);
+    color: #000000;
+    padding: 10px 5px 5px;
+    border: 0;
+    width: 100%;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.hide
+{
+    display: none;
+}
+
+.device{
+    width: 360px;
+}

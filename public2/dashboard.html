@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+
+
+<script src="js/dashboard.js"></script>
+<meta name="viewport" content="initial-scale=0.5">
+
+<head>
+    <meta charset="UTF-8">
+    <title>A D V E R T I N O</title>
+</head>
+<body>
+
+<tr>
+    <div class="headder">
+        <div class="row">
+            <div class="col-sm-1">
+                <img class="logo" src="images/0.png" alt="Paris">
+            </div>
+            <div class="col-sm-6">
+                <h1>A D V E R T I N O</h1>
+            </div>
+            <div class="col-sm-">
+                <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'home')">Home</button>
+                    <button class="tablinks" onclick="openCity(event, 'dashboard')">Dashboard</button>
+                    <!--<button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</tr>
+
+
+<div id="dashboard" class="tabcontent">
+    <h3>Advertino Tower Locations</h3>
+    <div class="row">
+        <!--<div class="col-sm-1">-->
+        <!--<p>-->
+        <!--<button class="w3-button w3-black w3-round-large" onclick="ShowMap()">Show</button>-->
+        <!--</p>-->
+        <!--</div>-->
+        <!--<div class="col-sm-1">-->
+        <!--<p>-->
+        <!--<button class="w3-button w3-black w3-round-large" onclick="hiddenMap()">Hide</button>-->
+        <!--</p>-->
+        <!--</div>-->
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
+            <div id="map" class="mapclass"></div>
+            <img class="tempMap" src="images/map.jpg" alt="Paris" width="800" height="350">
+        </div>
+        <div class="uploadAdd">
+            <div class="col-sm-10 uploadContent" style="float:left; padding-left: 80px;border:0px solid #000">
+
+                <p class="titileupload ">Region</p>
+                <select id="country" name="country">
+                    <option value="australia">Colombo</option>
+                    <option value="canada">Kollupitiya</option>
+                    <option value="usa">Union Place</option>
+                </select>
+
+                <div class="title">
+                    <p class="titileupload ">Devices</p>
+                </div>
+                <form class="device" id="make_checkbox_select">
+                    <select name="make">
+                        <option data-count="2" value="Alfa Romeo">Alfa Romeo</option>
+                        <option data-count="98" value="Peugeot">Peugeot</option>
+                        <option data-count="210" value="Porsche">Porsche</option>
+                        <option data-count="3" value="Renault">Renault</option>
+                    </select>
+                    <input type="submit"/>
+                </form>
+
+                <div class="title">
+                    <p class="titileupload ">Pick a Date</p>
+                </div>
+
+                <div class="date">
+                    <input type="text" name="daterange" value="01/01/2018 - 01/15/2018"/>
+                </div>
+
+                <p class="titileupload ">Type of the Advertisement</p>
+                <select id="country" name="country">
+                    <option value="australia">Poster</option>
+                    <option value="canada">Video</option>
+                    <option value="usa">Message</option>
+                </select>
+
+                <p class="titileupload ">Select Desired Time Slot</p>
+
+                <label class="container">
+                    <span class="checkmark"></span><input type="checkbox" checked="checked">
+                    6 AM - 9 AM
+                </label>
+                <label class="container">
+                    <span class="checkmark"></span><input type="checkbox" checked="checked">
+                    9 AM - 12 AM
+                </label>
+                <label class="container">
+                    <span class="checkmark"></span><input type="checkbox" checked="checked">
+                    12 AM - 3 PM
+                </label>
+                <label class="container">
+                    <span class="checkmark"></span><input type="checkbox" checked="checked">
+                    3 AM - 6 PM
+                </label>
+                <label class="container">
+                    <span class="checkmark"></span><input type="checkbox" checked="checked">
+                    6 AM - 9 PM
+                </label>
+
+                <p class="titileupload ">Times you need to play</p>
+                <select id="country" name="country">
+                    <option value="australia">40</option>
+                    <option value="canada">60</option>
+                    <option value="usa">80</option>
+                </select>
+
+                <p class="titileupload ">Upload Your Media FIles</p>
+                <div class="upload">
+                    <form class="form">
+                        <div class="file-upload-wrapper" data-text="Select your file!">
+                            <input name="file-upload-field" type="file" class="file-upload-field" value="">
+                        </div>
+                    </form>
+                </div>
+
+                <p style="padding-top:20px">
+                    <button class="w3-button w3-black w3-round-large" onclick="hiddenMap()">Done</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="home" class="tabcontent">
+    <h3>Paris</h3>
+    <p>Paris is the capital of France.</p>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJBdyi87skygRO_d84V-AcDaZvm5huq0k&callback=initMap"-->
+<!--async defer></>-->
+</body>
+<div class="footer-copyright">
+    <!--<div class="container">-->
+    <!--© 2014 Copyright Text-->
+    <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
+    <!--</div>-->
+</div>
+</html>
