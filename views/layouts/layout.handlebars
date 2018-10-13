@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/BMS/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/BMS/css/style.css"/>
+    <link rel="stylesheet" href="/BMS/css/dashboard.css">
+</head>
+
+<body>
+
+<div class="header clearfix">
+    <nav>
+        <ul class="nav nav-pills"> <!-- pull-right-->
+            {{#if user}}
+                <!--<div class="col-md-12 no-padding header-bar">-->
+                <!--<div class="col-md-6 no-padding main-logo float-left">-->
+                <!--<div class="col-xs-2 no-padding logo-area-top">-->
+                <!--<img class="main-logo-img" src="/BMS/images/dialog-logo.png">-->
+                <!--</div>-->
+                <!--<div class="col-xs-10 no-padding">-->
+                <!--<h1 class="main-logo-name">Building Management System</h1>-->
+                <!--</div>-->
+
+                <!--</div>-->
+                <!--<div class="col-md-6 no-padding menu-section float-left">-->
+                <!--<div class="single-menu-item no-padding float-right"><i class="fas fa-home"></i> Home</div>-->
+                <!--<div class="single-menu-item no-padding float-right"><i class="fas fa-user-shield"></i>Hi Admin-->
+                <!--</div>-->
+                <!--<div class="single-menu-item no-padding float-right" role="presentation"><a-->
+                <!--href="/BMS/users/logout">Logout</a></div>-->
+                <!--</div>-->
+                <!--</div>-->
+            {{else}}
+                <!--<li role="presentation"><a href="/users/login">Login</a></li>-->
+                <!--<li role="presentation"><a href="/users/register">Register</a></li>-->
+                <li class="hedding">Building Management System</li>
+            {{/if}}
+        </ul>
+    </nav>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        {{#if success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+        {{/if}}
+
+        {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+        {{/if}}
+
+        {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+        {{/if}}
+
+        {{{body}}}
+
+    </div>
+</div>
+
+
+</body>
+</html>

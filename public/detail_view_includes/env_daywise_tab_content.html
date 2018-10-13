@@ -1,0 +1,80 @@
+<div class="env_tab_area no-padding">
+    <div class="date-type-area no-padding">
+        <label>
+            <input type="radio" checked name="rbDateType" value="SINGLE_DATE">
+            <div class="btn btn-sık"><span>SINGLE DATE</span></div>
+        </label>
+        <label>
+            <input type="radio" name="rbDateType" value="DATE_RANGE">
+            <div class="btn btn-sık"><span>DATE RANGE</span></div>
+        </label>
+    </div>
+
+
+
+    <div class="col-md-12 no-padding grpah-header">
+        HOURLY READING OF A DEVICE IN SPECIFIC DATE
+    </div>
+    <div class="col-md-12 no-padding filter-bar-area">
+        <div class="col-md-3 no-padding filter-box-area">
+            <div class="single-date">
+                <div class="filter-box-name no-padding">SELECT A DATE</div>
+                <div class="filter-dropdown-box no-padding">
+                    <div class="input-group date date-pick-outter" data-provide="datepicker">
+                        <!--<input type="text" class="form-control date-input"-->
+                        <!--<input type="text" class="form-control date_range"-->
+                        <!--datepicker-popup="yyyy-MM-dd" ng-model="dt"-->
+                        <!--placeholder="SELECT A DATE"-->
+                        <!--is-open="isOpened" show-weeks="false"/>-->
+                        <input class="date-input" type="text" name="singledate" ng-model="dateRange"/>
+
+                    </div>
+                    <!--<input type="text" ng-model="dt">-->
+                </div>
+            </div>
+            <div class="date-range">
+                <div class="filter-box-name no-padding">SELECT A DATE RANGE</div>
+                <div class="filter-dropdown-box no-padding">
+                    <div class="input-group date date-pick-outter" data-provide="datepicker">
+                        <!--<input type="text" class="form-control date-input"-->
+                        <!--<input type="text" class="form-control date_range"-->
+                        <!--datepicker-popup="yyyy-MM-dd" ng-model="dt"-->
+                        <!--placeholder="SELECT A DATE"-->
+                        <!--is-open="isOpened" show-weeks="false"/>-->
+                        <input class="date-input date-range-input" type="text" name="daterange" ng-model="dateRange"/>
+
+                    </div>
+                    <!--<input type="text" ng-model="dt">-->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 no-padding filter-box-area">
+            <div class="filter-box-name no-padding">SELECT A DEVICE</div>
+            <select class="select device_id" ng-model="filtersdevice">
+                <option value="" disabled selected>SELECT A DEVCIE</option>
+                <option
+                        value="{[{device}]}"
+                        ng-repeat="device in devices">
+                    {[{ 'ENVIRONMENT ' + device}]}
+                </option>
+                <!--<option value="17">DVC-17</option>-->
+            </select>
+        </div>
+        <div class="col-md-3 no-padding filter-box-area">
+            <div class="filter-box-name no-padding">SELECT A PARAMETER</div>
+            <select class="select parameter_select" ng-model="filtersparameter">
+                <option value="" disabled selected>SELECT A PARAMETER</option>
+                <option value="co2">CO<sub>2</sub></option>
+                <option value="temperature">TEMPERATURE</option>
+                <option value="humidity">HUMIDITY</option>
+            </select>
+
+        </div>
+        <div class="col-md-3 no-padding filter-box-area">
+            <button ng-click="generateDataGraph()" class="graph-generate-btn">
+                GENERATE
+            </button>
+        </div>
+    </div>
+</div>

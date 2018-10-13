@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dashboard">
+<head>
+    <meta charset="UTF-8">
+    <title>Building Management System Log in</title>
+    <!--<link rel="stylesheet" href="/BMS/css/bootstrap.css">-->
+    <link rel="stylesheet" href="/BMS/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/BMS/css/bootstrap-treeview.min.css">
+    <link rel="stylesheet" href="/BMS/css/fontawesome-free-5.1.1-web/css/all.min.css">
+    <!--<link rel="stylesheet" href="/BMS/css/bootstrap-select.css">-->
+    <!--<link rel="stylesheet" href="/BMS/css/bootstrap-datepicker.css">-->
+
+    <link rel="stylesheet" href="/BMS/css/widgets.css"/>
+    <link rel="stylesheet" type="text/css" href="https://www.highcharts.com/media/com_demo/css/highslide.css"/>
+    <link rel="stylesheet" type="text/css" href="../dist/jquery.gridster.min.css">
+
+    <link rel="stylesheet" href="/BMS/css/dashboard.css">
+    <link rel="stylesheet" href="/BMS/css/detailview.css">
+    <link rel="stylesheet" href="/BMS/css/all.css">
+
+    <link rel="stylesheet" href="/BMS/css/roundslider.min.css">
+    <link rel="stylesheet" href="/BMS/css/perfect-scrollbar.css">
+
+    <script src="/BMS/js/other/jquery.min.js"></script>
+    <script src="/BMS/js/other/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="../dist/jquery.gridster.min.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <script src="/BMS/js/Scripts/dashboard.js"></script>
+    <script src="/BMS/controllers/dashboardController.js"></script>
+    <link rel="stylesheet" href="/BMS/css/daterangepicker.css">
+
+</head>
+<body class="dashboard-body" ng-controller="dashboardController" >
+<div id="overlay"></div>
+
+
+
+<div class="loader-wrapper">
+    <div class="loading">
+        <h2>loading</h2>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+
+
+{{#if user}}
+    <div class="col-md-12 no-padding float-left main-content-area">
+
+
+        <div class="col-xs-5-1 no-padding float-left side-menu-outter">
+            <div class="col-md-12 float-left no-padding side-menu">
+                <div class="col-md-12 no-padding float-left side-menu-bg">
+                    <div class="col-md-12 no-padding side-padding">
+                        <!--<div id="slider"></div>-->
+                        <img class="main-logo-cls" src="/BMS/images/main-logo.png">
+                    </div>
+                    <div class="row side-padding">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-md-12 no-padding search-area">
+                                    <input type="input" class="form-control search-box float-left" id="input-search"
+                                           placeholder="Type to search..."
+                                           value="">
+                                </div>
+                            </div>
+                            <div class="checkbox" style="display:none;">
+                                <label>
+                                    <input type="checkbox" class="checkbox" id="chk-reveal-results" value="false"
+                                           checked>
+                                    Reveal Results
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div id="treeview-searchable" class="treeview"></div>
+
+                        </div>
+                    </div>
+                    <div class="side-padding" id="tree"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-5-4 no-padding float-left">
+
+            <div class="col-md-12 no-padding header-bar">
+
+
+                <div class="col-md-6 no-padding main-logo float-left">
+                    <div class="col-xs-12 no-padding">
+                        <h1 class="main-logo-name">DASHBOARD</h1>
+                    </div>
+
+                </div>
+                <div class="col-md-6 no-padding menu-section float-left">
+                    <!--<div class="single-menu-item no-padding float-right"><i class="fas fa-home"></i> Home</div>-->
+                    <!--<div class="single-menu-item no-padding float-right"><i class="fas fa-user-shield"></i>Hi Admin-->
+                    <!--</div>-->
+                    <div class="single-menu-item no-padding float-right" role="presentation"><a
+                            href="/BMS/users/logout">Logout</a></div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12 float-left no-padding">
+                <div class="menuWrap">
+                    <div class="menuNavigationFloat">
+                        <div class="singal-widget-item back-to-home" ng-click="homeWidgets()"><i
+                                class="fas fa-home"></i></div>
+                        <div id="detailViewTab" class="detail-view-tabs">
+
+                        </div>
+                        <div class="save-view-btn-area">
+                            <button class="save-view-btn" ng-click="saveWidgets(gridster)" type="button"><i
+                                    class="fas fa-save"></i></button>
+                        </div>
+                        <div class="add-widget-area">
+                            <div class="fab">
+                                <i class="material-icons fab-icon"><i class="fas fa-plus"></i></i>
+                                <form class='cntt-wrapper'>
+                                    <div id="fab-hdr">
+                                        Widgets
+                                    </div>
+                                    <div class="col-xs-12 no-padding add-widgets-section">
+                                        <!--******************Enviorenment widget add**********************-->
+                                        <div class="col-xs-3 no-padding single-widget-add">
+                                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="flipper">
+                                                    <div class="front">
+                                                        <div class="widget-icon">
+                                                            <img src="/BMS/images/eco-home.png">
+                                                        </div>
+                                                        <div class="widget-add-heading">
+                                                            Environment
+                                                            <div class="widget-add-subheading">
+                                                                CO<sub>2</sub>/Temperature/Humidity Status
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div ng-click="addWidgets(gridster, enviroment, 'enviroment')"
+                                                         class="back">
+                                                        <div class="widget-backside">
+                                                            <div class="widget-icon">
+                                                                <img src="/BMS/images/add.png">
+                                                            </div>
+                                                            <div class="widget-add-heading">
+                                                                Add Environment
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--******************Power widget add**********************-->
+                                        <div class="col-xs-3 no-padding single-widget-add">
+                                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="flipper">
+                                                    <div class="front">
+                                                        <div class="widget-icon">
+                                                            <img src="/BMS/images/power-widget.png">
+                                                        </div>
+                                                        <div class="widget-add-heading">
+                                                            Power
+                                                            <div class="widget-add-subheading">
+                                                                Power Consumption
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div ng-click="addWidgets(gridster, power, 'power')" class="back">
+                                                        <div class="widget-backside">
+                                                            <div class="widget-icon">
+                                                                <img src="/BMS/images/add.png">
+                                                            </div>
+                                                            <div class="widget-add-heading">
+                                                                Add Power
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--******************Generator widget add**********************-->
+                                        <div class="col-xs-3 no-padding single-widget-add">
+                                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="flipper">
+                                                    <div class="front">
+                                                        <div class="widget-icon">
+                                                            <img src="/BMS/images/generator.png">
+                                                        </div>
+                                                        <div class="widget-add-heading">
+                                                            Generator
+                                                            <div class="widget-add-subheading">
+                                                                Generator Status
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div ng-click="addWidgets(gridster, generator, 'generator')"
+                                                         class="back">
+                                                        <div class="widget-backside">
+                                                            <div class="widget-icon">
+                                                                <img src="/BMS/images/add.png">
+                                                            </div>
+                                                            <div class="widget-add-heading">
+                                                                Add Generator
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--******************Lift widget add**********************-->
+                                        <div class="col-xs-3 no-padding single-widget-add">
+                                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="flipper">
+                                                    <div class="front">
+                                                        <div class="widget-icon">
+                                                            <img src="/BMS/images/elevator.png">
+                                                        </div>
+                                                        <div class="widget-add-heading">
+                                                            Lift
+                                                            <div class="widget-add-subheading">
+                                                                Lift Status
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div ng-click="addWidgets(gridster, lift, 'lift')" class="back">
+                                                        <div class="widget-backside">
+                                                            <div class="widget-icon">
+                                                                <img src="/BMS/images/add.png">
+                                                            </div>
+                                                            <div class="widget-add-heading">
+                                                                Add Lift
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--******************Door widget add**********************-->
+                                        <div class="col-xs-3 no-padding single-widget-add">
+                                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="flipper">
+                                                    <div class="front">
+                                                        <div class="widget-icon">
+                                                            <img src="/BMS/images/door.png">
+                                                        </div>
+                                                        <div class="widget-add-heading">
+                                                            Door
+                                                            <div class="widget-add-subheading">
+                                                                Doors Status
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="back">
+                                                        <div class="widget-backside">
+                                                            <div class="widget-icon">
+                                                                <img src="/BMS/images/add.png">
+                                                            </div>
+                                                            <div class="widget-add-heading">
+                                                                Add Door
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--******************Area View widget add**********************-->
+                                        <div class="col-xs-3 no-padding single-widget-add">
+                                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="flipper">
+                                                    <div class="front">
+                                                        <div class="widget-icon">
+                                                            <img src="/BMS/images/plan-view.png">
+                                                        </div>
+                                                        <div class="widget-add-heading">
+                                                            Area View
+                                                            <div class="widget-add-subheading">
+                                                                Map view of the selected area
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div ng-click="addWidgets(gridster, floor, 'floor')" class="back">
+                                                        <div class="widget-backside">
+                                                            <div class="widget-icon">
+                                                                <img src="/BMS/images/add.png">
+                                                            </div>
+                                                            <div class="widget-add-heading">
+                                                                Add Area View
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--******************AC Energy meter**********************-->
+                                        <div class="col-xs-3 no-padding single-widget-add">
+                                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="flipper">
+                                                    <div class="front">
+                                                        <div class="widget-icon">
+                                                            <img src="/BMS/images/meter.png">
+                                                        </div>
+                                                        <div class="widget-add-heading">
+                                                            AC Energy Meter
+                                                            <div class="widget-add-subheading">
+                                                                AC Energy Meter
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div ng-click="addWidgets(gridster, smartmeter, 'smartmeter')"
+                                                         class="back">
+                                                        <div class="widget-backside">
+                                                            <div class="widget-icon">
+                                                                <img src="/BMS/images/add.png">
+                                                            </div>
+                                                            <div class="widget-add-heading">
+                                                                AC Energy Meter
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="btn-wrapper">
+                                        <button class="mdl-button mdl-js-button widget-cancel-btn" id="cancel"><i
+                                                class="fas fa-times"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 float-left no-padding main-content">
+
+                <div class="col-md-12 no-padding detail-view-outter" id="detailViewContent">
+
+                    <!---------------------------------------------->
+
+                    <div class="col-md-12 no-padding detail-view-main-content">
+                        <div class="col-md-12 detail-view-head no-padding">
+                            <div class="col-md-12 no-padding detail-header-middle">
+                                <div class="col-md-12 no-padding header-text">
+                                    <span class="header-title">ENVIRONMENT</span>
+                                    <span class="header-subline">DISCOVER ROOM BEHAVIOR</span>
+                                </div>
+
+                                <div class="env-boxes-outter col-md-12 no-padding">
+                                    <div class="col-xs-12 col-md-4 no-padding env-detailview-widget-box-outter">
+                                        <div class="col-xs-12 no-padding widget-box-inner">
+                                            <div class="col-md-9 no-padding env-box-heading">CARBON DIOXIDE</div>
+                                            <div class="col-md-3 no-padding parameter-box-icon-wrapper">
+                                                <img src="/BMS/images/co2.png" class="parameter-box-icon">
+                                            </div>
+                                            <div class="col-md-12 no-padding env-variable-boxes-outter">
+                                                <div class="col-md-4 no-padding env-variable-boxes-middle">
+                                                    <div class="col-xs-12 no-padding env-variable-boxes-inner">
+                                                        <div class="parameter-value-header no-padding">MAX</div>
+                                                        <div class="parameter-boxes-holder max-color">
+                                                            <div id="co2_max" class="parameter-value-text no-padding">0</div>
+                                                            <div class="parameter-value-text-units">ppm</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 no-padding device-id-section">DEVICE :<span id="co2maxDevice"
+                                                            class="device-id-value"></span></div>
+                                                </div>
+                                                <div class="col-md-4 no-padding env-variable-boxes-middle">
+                                                    <div class="col-xs-12 no-padding env-variable-boxes-inner">
+                                                        <div class="parameter-value-header no-padding">MIN</div>
+                                                        <div class="parameter-boxes-holder min-color">
+                                                            <div id="co2_min" class="parameter-value-text no-padding">0</div>
+                                                            <div class="parameter-value-text-units">ppm</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 no-padding device-id-section">DEVICE :<span id="co2minDevice"
+                                                            class="device-id-value"></span></div>
+                                                </div>
+                                                <div class="col-md-4 no-padding env-variable-boxes-middle">
+                                                    <div class="col-xs-12 no-padding env-variable-boxes-inner">
+                                                        <div class="parameter-value-header no-padding">AVG</div>
+                                                        <div class="parameter-boxes-holder avg-color">
+                                                            <div id="co2_avg" class="parameter-value-text no-padding">0</div>
+                                                            <div class="parameter-value-text-units">ppm</div>
+                                                        </div>
+                                                    </div>
+                                                    <!--<div class="col-md-12 no-padding device-id-section">DEVICE :<span-->
+                                                    <!--class="device-id-value">DEVICE02</span></div>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-4 no-padding env-detailview-widget-box-outter">
+                                        <div class="col-xs-12 no-padding widget-box-inner">
+                                            <div class="col-md-9 no-padding env-box-heading">TEMPERATURE</div>
+                                            <div class="col-md-3 no-padding parameter-box-icon-wrapper">
+                                                <img src="/BMS/images/thermometer.png" class="parameter-box-icon">
+                                            </div>
+                                            <div class="col-md-12 no-padding env-variable-boxes-outter">
+                                                <div class="col-md-4 no-padding env-variable-boxes-middle">
+                                                    <div class="col-xs-12 no-padding env-variable-boxes-inner">
+                                                        <div class="parameter-value-header no-padding">MAX</div>
+                                                        <div class="parameter-boxes-holder max-color">
+                                                            <div id="temp_max" class="parameter-value-text no-padding">0</div>
+                                                            <div class="parameter-value-text-units"><sup>0</sup>C</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 no-padding device-id-section">DEVICE :<span id="tempMaxDevice"
+                                                            class="device-id-value"></span></div>
+                                                </div>
+                                                <div class="col-md-4 no-padding env-variable-boxes-middle">
+                                                    <div class="col-xs-12 no-padding env-variable-boxes-inner">
+                                                        <div class="parameter-value-header no-padding">MIN</div>
+                                                        <div class="parameter-boxes-holder min-color">
+                                                            <div id="temp_min" class="parameter-value-text no-padding">0</div>
+                                                            <div class="parameter-value-text-units"><sup>0</sup>C</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 no-padding device-id-section">DEVICE :<span id="tempMinDevice"
+                                                            class="device-id-value"></span></div>
+                                                </div>
+                                                <div class="col-md-4 no-padding env-variable-boxes-middle">
+                                                    <div class="col-xs-12 no-padding env-variable-boxes-inner">
+                                                        <div class="parameter-value-header no-padding">AVG</div>
+                                                        <div class="parameter-boxes-holder avg-color">
+                                                            <div id="temp_avg" class="parameter-value-text no-padding">0</div>
+                                                            <div class="parameter-value-text-units"><sup>0</sup>C</div>
+                                                        </div>
+                                                    </div>
+                                                    <!--<div class="col-md-12 no-padding device-id-section">DEVICE :<span-->
+                                                    <!--class="device-id-value">DEVICE02</span></div>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-4 no-padding env-detailview-widget-box-outter">
+                                        <div class="col-xs-12 no-padding widget-box-inner">
+                                            <div class="col-md-9 no-padding env-box-heading">HUMIDITY</div>
+                                            <div class="col-md-3 no-padding parameter-box-icon-wrapper">
+                                                <img src="/BMS/images/drop.png" class="parameter-box-icon">
+                                            </div>
+                                            <div class="col-md-12 no-padding env-variable-boxes-outter">
+                                                <div class="col-md-4 no-padding env-variable-boxes-middle">
+                                                    <div class="col-xs-12 no-padding env-variable-boxes-inner">
+                                                        <div class="parameter-value-header no-padding">MAX</div>
+                                                        <div class="parameter-boxes-holder max-color">
+                                                            <div id="humid_max" class="parameter-value-text no-padding">0</div>
+                                                            <div class="parameter-value-text-units">ppm</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 no-padding device-id-section">DEVICE :<span id="humidmaxDevice"
+                                                            class="device-id-value">DEVICE02</span></div>
+                                                </div>
+                                                <div class="col-md-4 no-padding env-variable-boxes-middle">
+                                                    <div class="col-xs-12 no-padding env-variable-boxes-inner">
+                                                        <div class="parameter-value-header no-padding">MIN</div>
+                                                        <div class="parameter-boxes-holder min-color">
+                                                            <div id="humid_min" class="parameter-value-text no-padding">0</div>
+                                                            <div class="parameter-value-text-units">ppm</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 no-padding device-id-section">DEVICE :<span id="humidminDevice"
+                                                            class="device-id-value"></span></div>
+                                                </div>
+                                                <div class="col-md-4 no-padding env-variable-boxes-middle">
+                                                    <div class="col-xs-12 no-padding env-variable-boxes-inner">
+                                                        <div class="parameter-value-header no-padding">AVG</div>
+                                                        <div class="parameter-boxes-holder avg-color">
+                                                            <div id="humid_avg" class="parameter-value-text no-padding">0</div>
+                                                            <div class="parameter-value-text-units">ppm</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 detail-view-content no-padding">
+                            <tabset>
+                                <tab ng-repeat="tab in tabs" heading="{[{tab.title}]}" active="tab.active" disable="tab.disabled">
+                                    <div ng-include="tab.content"></div>
+                                </tab>
+                            </tabset>
+
+                            <div class="col-md-12 no-padding graph">
+                                <div class="col-md-12 graph-loader-outter no-padding">
+
+                                </div>
+                                <div class="loader-graph">
+                                    <div class="middle">
+                                        <div class="chart-1"></div>
+                                        <div class="chart-2"></div>
+                                        <div class="chart-3"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 no-padding detail-grpah-bg" id="container">
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <!---------------------------------------------->
+
+                </div>
+
+                <div id="dashboarWidgets">
+                    <!--<div id="dashboard_back" class="col-xs-12 no-padding main-content-area">-->
+                    <!--<div class="placeholder-heading">-->
+                    <!--Please select a node first-->
+                    <!--</div>-->
+                    <!--<img class="placeholder-img display-off" src="/BMS/images/placeholder-image.png">-->
+                    <!--</div>-->
+                    <div class="gridster">
+                        <ul></ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
+    <script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
+
+    <script src="/BMS/js/Scripts/elements.js"></script>
+    <script src="/BMS/js/other/bootstrap-treeview.min.js"></script>
+    <script src="/BMS/js/other/roundslider.min.js"></script>
+    <script src="/BMS/js/other/perfect-scrollbar.jquery.js"></script>
+    <script src="/BMS/js/other/ui-bootstrap-tpls.min.js"></script>
+    <script src="/BMS/js/other/moment.min.js"></script>
+    <script src="/BMS/js/other/daterangepicker.js"></script>
+    <script src="/BMS/js/Scripts/home.js"></script>
+    <script src="/BMS/js/Scripts/lib.js"></script>
+    <script src="/BMS/js/Scripts/widgetLib.js"></script>
+
+
+{{/if}}
+</body>
+</html>
+
+
+
