@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-<link rel="stylesheet" href="../public/css/dashboard.css">
+<link rel="stylesheet" href="/ADVERTINO//css/dashboard.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
 
 
-<script src="../public/js/dashboard.js"></script>
+<script src="/ADVERTINO//js/dashboard.js"></script>
 <meta name="viewport" content="initial-scale=0.5">
 
 <head>
@@ -26,15 +26,17 @@
     <div class="headder">
         <div class="row">
             <div class="col-sm-1">
-                <img class="logo" src="../public/images/0.png" alt="Paris">
+                <img class="logo" src="/ADVERTINO//images/0.png" alt="Paris">
             </div>
             <div class="col-sm-6">
                 <h1>A D V E R T I N O</h1>
             </div>
             <div class="col-sm-">
                 <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'user')">User</button>
+                    <button class="tablinks" onclick="openCity(event, 'dashboard')">Publish</button>
+                    <!--<button class="tablinks">Dashboard</button>-->
                     <button class="tablinks" onclick="openCity(event, 'home')">Home</button>
-                    <button class="tablinks" onclick="openCity(event, 'dashboard')">Dashboard</button>
                     <!--<button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>-->
                 </div>
             </div>
@@ -42,6 +44,15 @@
     </div>
 </tr>
 
+<div id="home" class="tabcontent">
+    <h3>Home</h3>
+    <p>need to implement</p>
+</div>
+
+<div id="user" class="tabcontent">
+    <h3>user</h3>
+    <p>need to implement user details</p>
+</div>
 
 <div id="dashboard" class="tabcontent">
     <h3>Advertino Tower Locations</h3>
@@ -60,7 +71,7 @@
     <div class="row">
         <div class="col-sm-7">
             <div id="map" class="mapclass"></div>
-            <img class="tempMap" src="../public/images/map.jpg" alt="Paris" width="800" height="350">
+            <img class="tempMap" src="/ADVERTINO//images/map.jpg" alt="Paris" width="800" height="350">
         </div>
         <div class="uploadAdd">
             <div class="col-sm-10 uploadContent" style="float:left; padding-left: 80px;border:0px solid #000">
@@ -147,20 +158,9 @@
     </div>
 </div>
 
-<div id="home" class="tabcontent">
-    <h3>Paris</h3>
-    <p>Paris is the capital of France.</p>
-</div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
 <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJBdyi87skygRO_d84V-AcDaZvm5huq0k&callback=initMap"-->
 <!--async defer></>-->
 </body>
-<div class="footer-copyright">
-    <!--<div class="container">-->
-    <!--© 2014 Copyright Text-->
-    <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
-    <!--</div>-->
-</div>
 </html>

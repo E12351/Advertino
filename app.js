@@ -15,7 +15,6 @@ var http = require('http').Server(app);
 
 var routes = require('./routes/pages/index');
 var users = require('./routes/pages/users');
-var bms = require('./routes/pages/bms');
 var data = require('./routes/data');
 
 var config;
@@ -94,17 +93,15 @@ app.use(function (req, res, next) {
 
 if (env == "production") {
     app.use('/', routes);
-    app.use('/bms', bms);
     app.use('/users', users);
     app.use('/data', data);
     app.use("/", express.static(path.join(__dirname + '/public')));
 
 } else {
     app.use('/', routes);
-    app.use('/BMS/bms', bms);
-    app.use('/BMS/users', users);
-    app.use('/BMS/data', data);
-    app.use("/BMS/", express.static(path.join(__dirname + '/public')));
+    app.use('/ADVERTINO/users', users);
+    app.use('/ADVERTINO/data', data);
+    app.use("/ADVERTINO/", express.static(path.join(__dirname + '/public')));
 
 }
 
