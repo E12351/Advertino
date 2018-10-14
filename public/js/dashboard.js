@@ -5,6 +5,8 @@ $(document).ready(function () {
     // openCity(event, 'dashboard');
 });
 
+var users = require('./routes/pages/users');
+
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -87,6 +89,10 @@ if (typeof String.prototype.trim !== 'function') {
     String.prototype.trim = function () {
         return this.replace(/^\s+|\s+$/g, '');
     }
+}
+
+function publish(){
+    console.log('publish');
 }
 
 var checkbox_select = function (params) {

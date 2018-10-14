@@ -91,19 +91,19 @@ app.use(function (req, res, next) {
     next();
 });
 
-if (env == "production") {
-    app.use('/', routes);
-    app.use('/users', users);
-    app.use('/data', data);
-    app.use("/", express.static(path.join(__dirname + '/public')));
+// if (env == "production") {
+//     app.use('/', routes);
+//     app.use('/users', users);
+//     app.use('/data', data);
+//     app.use("/", express.static(path.join(__dirname + '/public')));
+//
+// } else {
+app.use('/', routes);
+app.use('/ADVERTINO/users', users);
+app.use('/ADVERTINO/data', data);
+app.use("/ADVERTINO/", express.static(path.join(__dirname + '/public')));
 
-} else {
-    app.use('/', routes);
-    app.use('/ADVERTINO/users', users);
-    app.use('/ADVERTINO/data', data);
-    app.use("/ADVERTINO/", express.static(path.join(__dirname + '/public')));
-
-}
+// }
 
 http.listen(config.port, function () {
     if (config.debug == true) {

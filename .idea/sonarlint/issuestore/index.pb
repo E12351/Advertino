@@ -1,0 +1,19 @@
+
+O
+views/layouts/layout.handlebars,d\6\d6fd393fbf5c3867a226ea9c7c2a4e3f57f69d66
+F
+public2/dashboard.html,6\2\62bda7b7433e70ad9d5e434b05237786e680ce6d
+F
+public/js/dashboard.js,f\c\fcbaf8bc31a2d87d9b546245761fc2afdc115cbd
+E
+views/home.handlebars,a\4\a49ae3163d34ab60dee59f8e2eaa7f5d9a11e617
+H
+public/css/dashboard.css,d\2\d2ba47f93f257fdd803a1041b96a4575804f0ac2
+6
+app.js,4\a\4a68969ef8e858229267b842dedf42ab5dde4d50
+E
+routes/pages/users.js,1\4\1475c3e10d50b1016dd07d492453abbc0568d006
+H
+views/publish.handlebars,b\b\bbeb574670bc1a708417a8cb47677c1837279300
+F
+views/index.handlebars,1\a\1ad56a4a9ce68c2eac519fa5b06b0e8bfa070eaf

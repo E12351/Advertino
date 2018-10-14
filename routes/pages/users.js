@@ -14,6 +14,16 @@ console.log = function(d) { //
 router.get('/home', function(req, res){
     res.render('home');
 });
+
+router.get('/index', function(req, res){
+    res.render('index');
+});
+
+router.get('/publish', function(req, res){
+    res.render('publish');
+});
+
+
 //
 // // create User
 // router.post('/register', function (req, res) {
@@ -88,7 +98,7 @@ router.get('/home', function(req, res){
 //    res.redirect('/BMS/users/login');
 // });
 //
-// module.exports = router;
+module.exports = router;
 //
 //
 // // Register User
